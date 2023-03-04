@@ -5,6 +5,7 @@ public interface IntList {
     int set(int index, int element);
     int size();
     void add(int element);
+    int lastIndexOf(int element);
     int remove(int index);
 
 

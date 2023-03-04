@@ -2,7 +2,7 @@ package by.tms.lesson18.homework;
 
 import java.util.Arrays;
 
-public class IntArrayList implements IntList{
+public class IntArrayList implements IntList {
 
     private int[] arrayList;
 
@@ -14,6 +14,7 @@ public class IntArrayList implements IntList{
         this.arrayList = Arrays.copyOf(inputArray, inputArray.length);
     }
 
+    @Override
     public String toString() {
 
         String resultString = "[";
@@ -30,6 +31,7 @@ public class IntArrayList implements IntList{
         return resultString;
     }
 
+    @Override
     public int get(int index) {
 
         if (index >= arrayList.length || index < 0) {
@@ -39,6 +41,7 @@ public class IntArrayList implements IntList{
 
     }
 
+    @Override
     public int set(int index, int element) {
 
         if (arrayList.length == 0) {
@@ -54,10 +57,12 @@ public class IntArrayList implements IntList{
         return returnedElement;
     }
 
+    @Override
     public int size() {
         return arrayList.length;
     }
 
+    @Override
     public void add(int element) {
 
         int[] addOneArray;
@@ -69,6 +74,7 @@ public class IntArrayList implements IntList{
         arrayList = addOneArray;
     }
 
+    @Override
     public int remove(int index) {
 
         if (arrayList.length == 0) {
@@ -118,6 +124,7 @@ public class IntArrayList implements IntList{
         return new IntArrayList(tmpArray);
     }
 
+    @Override
     public int lastIndexOf(int element) {
 
         for (int i = arrayList.length - 1; i > 0; i--) {
