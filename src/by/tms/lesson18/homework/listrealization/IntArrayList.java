@@ -1,10 +1,8 @@
 package by.tms.lesson18.homework.listrealization;
 
-import by.tms.lesson18.homework.IntArrayList;
-
 import java.util.Scanner;
 
-public class IntArrayListReaalization {
+public class IntArrayList {
 
     public void getIntArrayListReaalization() {
 
@@ -21,7 +19,7 @@ public class IntArrayListReaalization {
         for (int i = 0; i < numberStr.length; i++) {
             numbers[i] = Integer.parseInt(numberStr[i]);
         }
-        IntArrayList intList = new IntArrayList(numbers);
+        by.tms.lesson18.homework.IntArrayList intList = new by.tms.lesson18.homework.IntArrayList(numbers);
         System.out.println("What we will to do?");
 
         do {

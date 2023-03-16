@@ -4,7 +4,7 @@ import by.tms.lesson18.homework.IntLinkedList;
 
 import java.util.Scanner;
 
-public class LinkedListRealization {
+public class LinkedList {
 
     public void getLinkedListRealization() {
 

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-import by.tms.lesson18.homework.listrealization.IntArrayListReaalization;
-import by.tms.lesson18.homework.listrealization.LinkedListRealization;
+import by.tms.lesson18.homework.listrealization.IntArrayList;
+import by.tms.lesson18.homework.listrealization.LinkedList;
 
 public class Homework18Test {
     public static void main(String[] args) {
@@ -21,11 +21,11 @@ public class Homework18Test {
 
             switch (key) {
                 case 1 -> {
-                    IntArrayListReaalization ilr = new IntArrayListReaalization();
+                    IntArrayList ilr = new IntArrayList();
                     ilr.getIntArrayListReaalization();
                 }
                 case 2 -> {
-                    LinkedListRealization llr = new LinkedListRealization();
+                    LinkedList llr = new LinkedList();
                     llr.getLinkedListRealization();
                 }
                 case 0 -> {
