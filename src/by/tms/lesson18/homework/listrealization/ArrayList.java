@@ -1,10 +1,12 @@
 package by.tms.lesson18.homework.listrealization;
 
+import by.tms.lesson18.homework.IntArrayList;
+
 import java.util.Scanner;
 
-public class IntArrayList {
+public class ArrayList {
 
-    public void getIntArrayListReaalization() {
+    public void getIntArrayList() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.print("Input string of integers with comma separation: ");
@@ -19,7 +21,7 @@ public class IntArrayList {
         for (int i = 0; i < numberStr.length; i++) {
             numbers[i] = Integer.parseInt(numberStr[i]);
         }
-        by.tms.lesson18.homework.IntArrayList intList = new by.tms.lesson18.homework.IntArrayList(numbers);
+        IntArrayList intList = new IntArrayList(numbers);
         System.out.println("What we will to do?");
 
         do {

@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class LinkedList {
 
-    public void getLinkedListRealization() {
+    public void getLinkedList() {
 
         Scanner scanner = new Scanner(System.in);
         IntLinkedList mySingleDirectionLinkedList = new IntLinkedList();
@@ -27,12 +27,11 @@ public class LinkedList {
             int key = Integer.parseInt(scanner.nextLine());
 
             switch (key) {
-                case 1 -> mySingleDirectionLinkedList.printList();
+                case 1 -> System.out.println(mySingleDirectionLinkedList);
                 case 2 -> {
                     System.out.print("Enter new element: ");
                     int element = Integer.parseInt(scanner.nextLine());
                     mySingleDirectionLinkedList.add(element);
-                    mySingleDirectionLinkedList.printList();
                 }
                 case 3 -> {
                     System.out.print("Enter index of element: ");
@@ -51,7 +50,7 @@ public class LinkedList {
                     System.out.print("Enter index of element to remove: ");
                     int position = Integer.parseInt(scanner.nextLine());
                     System.out.println("Element [" + mySingleDirectionLinkedList.remove(position) + "] on position [" + position + "] was removed");
-                    mySingleDirectionLinkedList.printList();
+                    System.out.println(mySingleDirectionLinkedList);
                 }
                 case 7 -> {
                     scanner = new Scanner(System.in);

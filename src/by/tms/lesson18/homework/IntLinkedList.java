@@ -84,7 +84,21 @@ public class IntLinkedList implements IntList {
 
     @Override
     public String toString() {
-        return String.valueOf(firstElement);
+
+        if (firstElement == null) {
+            return "[ ]";
+        }
+
+        Node lastElement = firstElement;
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+
+        while (lastElement != null) {
+            stringBuilder.append(lastElement.getElement()).append(", ");
+            lastElement = lastElement.getNextNode();
+        }
+        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(",")).append("]");
+        return stringBuilder.toString();
     }
 
     @Override
@@ -109,16 +123,6 @@ public class IntLinkedList implements IntList {
         }
 
         return deletedElement;
-    }
-
-    public void printList() {
-
-        Node lastElement = firstElement;
-
-        while (lastElement != null) {
-            System.out.print(lastElement);
-            lastElement = lastElement.getNextNode();
-        }
     }
 
     private Node getNode(int index) {
