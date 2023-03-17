@@ -51,38 +51,16 @@ public class IntLinkedList implements IntList {
         return getNode(index).getElement();
     }
 
-    private Node getNode(int index) {
-
-        Node lastElement = firstElement;
-        for (int i = 0; i < index; i++) {
-            if (lastElement == null) {
-                throw new IllegalArgumentException("Not such element");
-            }
-            lastElement = lastElement.getNextNode();
-        }
-
-        return lastElement;
-    }
-
     @Override
     public int set(int index, int element) {
 
-        Node lastElement = firstElement;
-
-        if (index < 0 || lastElement == null) {
+        if (index < 0) {
             throw new IllegalArgumentException("No element with index [" + index + "] in the list");
         }
 
-        int returnedElement = getNode(index).getElement();
-
-        for (int i = 0; i <= index; i++) {
-            if (i == index) {
-                returnedElement = lastElement.getElement();
-                lastElement.setElement(element);
-                break;
-            }
-            lastElement = lastElement.getNextNode();
-        }
+        Node lastNode = getNode(index);
+        int returnedElement = lastNode.getElement();
+        lastNode.setElement(element);
 
         return returnedElement;
     }
@@ -112,10 +90,9 @@ public class IntLinkedList implements IntList {
     @Override
     public int remove(int index) {
 
-        Node lastElement = firstElement;
-        int deletedElement = 0;
+        int deletedElement;
 
-        if (lastElement == null) {
+        if (firstElement == null) {
             throw new IllegalArgumentException("List is empty");
         }
         if (index < 0) {
@@ -125,20 +102,15 @@ public class IntLinkedList implements IntList {
         if (index == 0) {
             deletedElement = firstElement.getElement();
             firstElement = firstElement.getNextNode();
-            return deletedElement;
-        }
-
-        for (int i = 0; i <= index; i++) {
-            if (i + 1 == index) {
-                deletedElement = lastElement.getNextNode().getElement();
-                lastElement.setNextNode(lastElement.getNextNode().getNextNode());
-                break;
-            }
-            lastElement = lastElement.getNextNode();
+        } else {
+            Node lastElement = getNode(index - 1);
+            deletedElement = lastElement.getNextNode().getElement();
+            lastElement.setNextNode(lastElement.getNextNode().getNextNode());
         }
 
         return deletedElement;
     }
+
     public void printList() {
 
         Node lastElement = firstElement;
@@ -147,6 +119,19 @@ public class IntLinkedList implements IntList {
             System.out.print(lastElement);
             lastElement = lastElement.getNextNode();
         }
+    }
+
+    private Node getNode(int index) {
+
+        Node lastElement = firstElement;
+        for (int i = 0; i < index; i++) {
+            if (lastElement == null) {
+                throw new IllegalArgumentException("Not such element");
+            }
+            lastElement = lastElement.getNextNode();
+        }
+
+        return lastElement;
     }
 
 }
