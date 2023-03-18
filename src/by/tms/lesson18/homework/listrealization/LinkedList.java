@@ -2,6 +2,7 @@ package by.tms.lesson18.homework.listrealization;
 
 import by.tms.lesson18.homework.IntLinkedList;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class LinkedList {
@@ -20,6 +21,7 @@ public class LinkedList {
             System.out.println("5. linked list size");
             System.out.println("6. remove element from linked list");
             System.out.println("7. last index of element in the linked list");
+            System.out.println("8. iteration");
             System.out.println("0. Exit");
             System.out.println("******************************");
             System.out.print("Input task number (0 for exit): ");
@@ -57,6 +59,12 @@ public class LinkedList {
                     System.out.print("Enter element: ");
                     int element = Integer.parseInt(scanner.nextLine());
                     System.out.println(mySingleDirectionLinkedList.lastIndexOf(element));
+                }
+                case 8 -> {
+                    Iterator<Integer> iterator = mySingleDirectionLinkedList.iterator();
+                    while (iterator.hasNext()){
+                        System.out.print(iterator.next() + " ");
+                    }
                 }
                 case 0 -> {
                     System.out.println("See you!!!");

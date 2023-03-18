@@ -2,6 +2,7 @@ package by.tms.lesson18.homework.listrealization;
 
 import by.tms.lesson18.homework.IntArrayList;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class ArrayList {
@@ -35,6 +36,7 @@ public class ArrayList {
             System.out.println("7. subList()");
             System.out.println("8. lastIndexOf()");
             System.out.println("9. sort()");
+            System.out.println("10. iteration");
             System.out.println("0. Exit");
             System.out.println("******************************");
             System.out.print("Input task number (0 for exit): ");
@@ -97,6 +99,13 @@ public class ArrayList {
                     System.out.print("Before sorting: " + intList);
                     intList.sort();
                     System.out.print("After sorting: " + intList);
+                }
+                case 10 -> {
+                    Iterator<Integer> iterator = intList.iterator();
+                    while (iterator.hasNext()){
+                        System.out.print(iterator.next() + " ");
+                    }
+                    System.out.println();
                 }
                 case 0 -> {
                     System.out.println("See you!!!");

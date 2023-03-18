@@ -1,6 +1,9 @@
 package by.tms.lesson18.homework;
 
 import by.tms.lesson18.homework.entity.Node;
+import by.tms.lesson18.homework.listrealization.LinkedListIterator;
+
+import java.util.Iterator;
 
 public class IntLinkedList implements IntList {
 
@@ -90,14 +93,13 @@ public class IntLinkedList implements IntList {
         }
 
         Node lastElement = firstElement;
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("[");
+        StringBuilder stringBuilder = new StringBuilder("[");
 
-        while (lastElement != null) {
+        while (lastElement.getNextNode() != null) {
             stringBuilder.append(lastElement.getElement()).append(", ");
             lastElement = lastElement.getNextNode();
         }
-        stringBuilder.deleteCharAt(stringBuilder.lastIndexOf(",")).append("]");
+        stringBuilder.append(lastElement.getElement()).append("]");
         return stringBuilder.toString();
     }
 
@@ -125,6 +127,11 @@ public class IntLinkedList implements IntList {
         return deletedElement;
     }
 
+    @Override
+    public Iterator<Integer> iterator() {
+        return new LinkedListIterator(firstElement);
+    }
+
     private Node getNode(int index) {
 
         Node lastElement = firstElement;
@@ -137,5 +144,6 @@ public class IntLinkedList implements IntList {
 
         return lastElement;
     }
+
 
 }

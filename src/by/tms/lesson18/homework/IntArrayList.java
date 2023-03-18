@@ -1,6 +1,9 @@
 package by.tms.lesson18.homework;
 
+import by.tms.lesson18.homework.listrealization.ArrayListIterator;
+
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class IntArrayList implements IntList {
 
@@ -148,6 +151,11 @@ public class IntArrayList implements IntList {
                 }
             }
         }
+    }
+
+    @Override
+    public Iterator<Integer> iterator() {
+        return new ArrayListIterator(this);
     }
 
 }

@@ -1,6 +1,6 @@
 package by.tms.lesson18.homework;
 
-public interface IntList {
+public interface IntList extends Iterable<Integer>{
     int get(int index);
     int set(int index, int element);
     int size();
