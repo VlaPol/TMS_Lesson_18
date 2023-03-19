@@ -3,6 +3,7 @@ package by.tms.lesson18.homework.listrealization;
 import by.tms.lesson18.homework.IntList;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class ArrayListIterator implements Iterator<Integer> {
 
@@ -21,7 +22,11 @@ public class ArrayListIterator implements Iterator<Integer> {
     }
 
     @Override
-    public Integer next() {
-        return list.get(++index - 1);
+    public Integer next() throws NoSuchElementException {
+        if(hasNext()) {
+            return list.get(++index - 1);
+        }else{
+            throw new NoSuchElementException();
+        }
     }
 }
