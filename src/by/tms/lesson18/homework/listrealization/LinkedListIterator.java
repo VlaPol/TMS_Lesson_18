@@ -3,6 +3,7 @@ package by.tms.lesson18.homework.listrealization;
 import by.tms.lesson18.homework.entity.Node;
 
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 public class LinkedListIterator implements Iterator<Integer> {
 
@@ -18,12 +19,13 @@ public class LinkedListIterator implements Iterator<Integer> {
     }
 
     @Override
-    public Integer next() {
-        if (hasNext()) {
+    public Integer next() throws NoSuchElementException {
+        if(hasNext()) {
             Integer returnedElement = intLinkedNode.getElement();
             intLinkedNode = intLinkedNode.getNextNode();
             return returnedElement;
+        }else{
+            throw new NoSuchElementException();
         }
-        return null;
     }
 }

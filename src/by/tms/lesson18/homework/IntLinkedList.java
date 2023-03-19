@@ -49,7 +49,7 @@ public class IntLinkedList implements IntList {
     public int get(int index) {
 
         if (index < 0) {
-            throw new IllegalArgumentException("Not such element");
+            throw new IndexOutOfBoundsException();
         }
         return getNode(index).getElement();
     }
@@ -58,7 +58,7 @@ public class IntLinkedList implements IntList {
     public int set(int index, int element) {
 
         if (index < 0) {
-            throw new IllegalArgumentException("No element with index [" + index + "] in the list");
+            throw new IndexOutOfBoundsException();
         }
 
         Node lastNode = getNode(index);
@@ -71,14 +71,14 @@ public class IntLinkedList implements IntList {
     @Override
     public int lastIndexOf(int element) {
 
-        int listSize = size();
         Node lastElement = firstElement;
         int returnedIndex = -1;
-
-        for (int i = 0; i < listSize; i++) {
+        int i = 0;
+        while (lastElement != null) {
             if (lastElement.getElement() == element) {
                 returnedIndex = i;
             }
+            i++;
             lastElement = lastElement.getNextNode();
         }
 
@@ -106,15 +106,11 @@ public class IntLinkedList implements IntList {
     @Override
     public int remove(int index) {
 
+        if (firstElement == null || index < 0) {
+            throw new IndexOutOfBoundsException();
+        }
+
         int deletedElement;
-
-        if (firstElement == null) {
-            throw new IllegalArgumentException("List is empty");
-        }
-        if (index < 0) {
-            throw new IllegalArgumentException("No element with index [" + index + "] in the list");
-        }
-
         if (index == 0) {
             deletedElement = firstElement.getElement();
             firstElement = firstElement.getNextNode();
@@ -137,7 +133,7 @@ public class IntLinkedList implements IntList {
         Node lastElement = firstElement;
         for (int i = 0; i < index; i++) {
             if (lastElement == null) {
-                throw new IllegalArgumentException("Not such element");
+                throw new IndexOutOfBoundsException();
             }
             lastElement = lastElement.getNextNode();
         }

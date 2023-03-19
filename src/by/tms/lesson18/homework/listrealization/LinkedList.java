@@ -2,7 +2,6 @@ package by.tms.lesson18.homework.listrealization;
 
 import by.tms.lesson18.homework.IntLinkedList;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class LinkedList {
@@ -61,9 +60,8 @@ public class LinkedList {
                     System.out.println(mySingleDirectionLinkedList.lastIndexOf(element));
                 }
                 case 8 -> {
-                    Iterator<Integer> iterator = mySingleDirectionLinkedList.iterator();
-                    while (iterator.hasNext()){
-                        System.out.print(iterator.next() + " ");
+                    for (Integer integer : mySingleDirectionLinkedList) {
+                        System.out.print(integer + " ");
                     }
                 }
                 case 0 -> {
