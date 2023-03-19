@@ -17,15 +17,11 @@ public class ArrayListIterator implements Iterator<Integer> {
     public boolean hasNext() {
 
         int size = list.size();
-        while (size > index) {
-            index++;
-            return true;
-        }
-        return false;
+        return index < size;
     }
 
     @Override
     public Integer next() {
-        return list.get(index - 1);
+        return list.get(++index - 1);
     }
 }

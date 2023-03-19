@@ -19,11 +19,8 @@ public class LinkedListIterator implements Iterator<Integer> {
 
     @Override
     public Integer next() {
-        if (hasNext()) {
-            Integer returnedElement = intLinkedNode.getElement();
-            intLinkedNode = intLinkedNode.getNextNode();
-            return returnedElement;
-        }
-        return null;
+        Integer returnedElement = intLinkedNode.getElement();
+        intLinkedNode = intLinkedNode.getNextNode();
+        return returnedElement;
     }
 }
